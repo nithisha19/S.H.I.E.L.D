@@ -1,0 +1,106 @@
+<app-dashboard></app-dashboard>>
+<form  #myForm="ngForm" (ngSubmit)="register(form)" autocomplete="off">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="well center-block">
+        <div class="well-header">
+          <h3 class="text-center "> Create Account Here! </h3>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)] ="model.user_id" #user_id="ngModel" name="user_id" id="user_id"
+                  placeholder="User Id" class="form-control" required>
+                  <div *ngIf="user_id.errors &&(user_id.touched || user_id.dirty)" 
+                    class="aler alert-danger">
+                      <div [hidden]="!user_id.errors">
+                        <span>Cannot be empty</span>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)]="model.bank_id" #bank_id="ngModel" name="bank_id" id="bank_id"
+                  placeholder="Bank Id" class="form-control" required>
+                  <div *ngIf="bank_id.errors &&(bank_id.touched || bank_id.dirty)" 
+                    class="aler alert-danger">
+                      <div [hidden]="!bank_id.errors">
+                        <span>Cannot be empty</span>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <select class="form-control" type="text" [(ngModel)]="model.account_type" #account_type="ngModel"  
+                name="account_type" id="account_type" required>
+                  <option>Current</option>
+                  <option>Savings</option>
+                </select>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)] ="model.account_balance"
+                 #account_balance="ngModel"
+                 pattern="[5-9][0-9]{3}[0-9]{0,}$|[1-9][0-9]{4,}$"
+                 name="account_balance" id="account_balance" 
+                  placeholder="Account Balance" class="form-control"
+                    min="5000" required>
+                  <div *ngIf="account_balance.errors &&(account_balance.touched || account_balance.dirty)" 
+                    class="alert alert-danger">
+                      <div [hidden]="!account_balance.errors?.pattern">
+                        <span>Minimum balance should be 5000</span>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+
+        <div class="row widget">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <button class="btn btn-primary btn-block" type="submit"
+            [disabled]="!myForm.valid"> Submit </button>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+</form>

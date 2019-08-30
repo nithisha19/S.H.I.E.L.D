@@ -1,0 +1,75 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<form ngForm #form="ngForm" (ngSubmit)="validate(form)">
+  <div class=" container-fluid">
+    <div class="row">
+      <div class="well center-block">
+        <div class="well-header">
+          <h3 class="text-center "> Login! </h3>
+          <hr>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input ngModel #account_id="ngModel" name="account_id" id="account_id" type="text" class="form-control"
+                  placeholder="User Id" required minlength="4" appForbiddenName="admin">
+
+              </div>
+              <div *ngIf="account_id.invalid && (account_id.dirty || account_id.touched)" class="alert alert-danger">
+
+                <div *ngIf="account_id.errors.required">
+                 user id is required.
+                </div>
+                <div *ngIf="account_id.errors.minlength">
+                  user id must be at least 6 characters long.
+                </div>
+                <div *ngIf="account_id.errors.forbiddenName">
+                  Name cannot be admin.
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <input ngModel #password="ngModel" name="password" id="password" type="password" class="form-control"
+                  placeholder="Enter password">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row widget">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <button class="btn btn-primary btn-block"> Login </button>
+          </div>
+        </div>
+        <div class="row widget">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+
+          </div>
+        </div>
+        <div class="alert alert-danger" *ngIf=err_msg>
+          <strong>Invalid Credentials!</strong>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+</form>

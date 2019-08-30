@@ -1,0 +1,111 @@
+<app-sidebar>
+</app-sidebar>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<form ngForm #form="ngForm" (ngSubmit)="transfer(form)">
+  <div class=" container-fluid">
+    <div class="row">
+
+      <div class="well center-block">
+        <div class="well-header]">
+          <h3 class="text-center ">Transfer </h3>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+
+                <div class="input-group-addon">
+
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input value={{from_id}} disabled class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)]="model.to_account" name="to_account" id="to_account"
+                  placeholder="To account" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-arrow-up"></i>
+                </div>
+                <input type="number" [(ngModel)]="model.amount" name="amount" id="amount" placeholder="Amount"
+                class="form-control" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0 || 
+                event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 
+                57" onpaste="return false" pattern="[^\-]+">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+
+                  <i class="glyphicon glyphicon-arrow-up"></i>
+                </div>
+                <input type="text" name="message" id="message" placeholder="message" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row widget">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <button class="btn btn-primary btn-block"> Transfer </button>
+          </div>
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="IsTransfer">
+          <h4 class="alert-heading">Success!!</h4>
+          <p>Your Transaction is successful</p>
+          <hr>
+          <p class="mb-0">Shortly you would receive an email and mobile alert.</p>
+        </div>
+        <div class="alert  alert-warning" role="alert" *ngIf="IsPending">
+          <h4 class="alert-heading">Pending!!</h4>
+          <p>Your Transaction is pending</p>
+          <hr>
+          <p class="mb-0">Please Contact the bank.</p>
+        </div>
+        <div class="alert  alert-warning" role="alert" *ngIf="!funds">
+          <h4 class="alert-heading">Insufficient Funds!!</h4>
+          <p>Please check your balance</p>
+          <hr>
+          <p class="mb-0">Please Contact the bank.</p>
+        </div>
+        <div class="row widget">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+
+</form>

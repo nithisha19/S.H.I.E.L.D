@@ -1,0 +1,105 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+
+  <h1>Edit Profile</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <!-- <div class="col-md-3">
+      <div class="text-center">
+        <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+        <h6>Upload a different photo...</h6>
+
+        <input type="file" class="form-control">
+      </div>
+    </div> -->
+
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+
+      <h3>Personal info</h3>
+
+      <form class="form-horizontal" ngForm #form="ngForm" (ngSubmit)="update(form)">
+        <div class="form-group">
+          <label class="col-lg-3 control-label">First name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value={{account.first_name}} ngModel #first_name="ngModel"
+              name="first_name" id="first_name" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Middle name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value={{account.middle_name}} ngModel #middle_name="ngModel"
+              name="middle_name" id="middle_name" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Last name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value={{account.last_name}} ngModel #last_name="ngModel"
+              name="last_name" id="last_name" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Account Id:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value={{account_id}} disabled>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value={{account.email}} ngModel #email="ngModel" name="email"
+              id="email" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Phone number:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="tel" value={{account.mobile_no}} ngModel #phno="ngModel" name="phno"
+              id="phno" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">SSN:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="text" value={{account.ssn_no}} ngModel #username="ngModel" name="ssn_no"
+              id="ssn_no" disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">DOB:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="text" value={{account.dob}} ngModel #dob="ngModel" name="dob" id="dob"
+              disabled>
+          </div>
+        </div>
+        <!-- <div class="form-group">
+          <label class="col-md-3 control-label">Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="password" value="" ngModel #password="ngModel" name="password"
+              id="password">
+          </div>
+        </div> -->
+        <!-- <div class="form-group">
+          <label class="col-md-3 control-label">Confirm password:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="password" value="" ngModel #con_password="ngModel" name="con_password"
+              id="con_password">
+          </div>
+        </div> -->
+        <!-- <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <input type="submit" class="btn btn-primary" value="Save Changes">
+            <span></span>
+            <input type="reset" class="btn btn-default" value="Cancel">
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </div>
+</div>
+<hr>

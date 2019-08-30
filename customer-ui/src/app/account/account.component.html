@@ -1,0 +1,34 @@
+<app-sidebar>
+
+</app-sidebar>
+<div class="container m-t-md">
+  <!-- First row -->
+  <div class="row">
+    <div class="col-xs-12 col-md-4" *ngFor="let account of accounts">
+
+      <!-- Card -->
+      <article class="card animated fadeInLeft">
+        <img class="card-img-top img-responsive" [src]="account.account_type=='savings' ? savings_img : current_img"
+          alt={{account_type}} />
+
+        <div class=" card-block">
+          <!-- <h4 class="card-title">{{account.account_type}}</h4> -->
+          <h6 class="text-muted" style="font-size: 14px">Account id:{{account.account_no}}</h6>
+          <p class="card-text">{{account.account_type}}</p>
+
+          <button type="button" (click)="transfer(account)" class="btn btn-primary btn-block"
+            style="width: 100">Transfer</button>
+          <!-- <button type="button" class="btn btn-secondary btn-block">View Balance</button> -->
+
+          <button (click)="open(account)" type="button" class="btn btn-success btn-block">Transaction History </button>
+          <button (click)="mini(account)" type="button" class="btn btn-info   btn-block">Mini Statement </button>
+          <br>
+          <h4 class="text-muted" style="font-size: 16px;color: black"> Balance:{{account.account_balance}}</h4>
+        </div>
+      </article><!-- .end Card -->
+    </div>
+
+
+
+  </div><!-- .end Second row -->
+</div>

@@ -1,0 +1,48 @@
+
+<app-sidebar></app-sidebar>
+<div>
+    <div class="main">
+  
+      <!-- Actual search box -->
+      <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+      </div>
+  
+  
+  
+    </div>
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Account Id</th>
+            <th scope="col">User Id</th>
+            <th scope="col">Account Type</th>
+            <th scope="col">Opened Date</th>
+            
+            <th scope="approve">Delete</th>
+           
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts | paginate: { itemsPerPage: 10, currentPage: p }">
+  
+            <th>{{account.account_no}}</th>
+            <th>{{account.user.user_id}}</th>
+            <td>{{account.account_type}}</td>
+            <td>{{account.opened_date | date:'MM/dd/yyyy'}}</td>
+           
+            <td>
+  
+            <button (click)="deleteAccount(account)"  type="button" class="btn btn-primary btn-sm">Delete</button>
+            </td>
+           
+          </tr>
+  
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  

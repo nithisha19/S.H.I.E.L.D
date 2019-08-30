@@ -1,0 +1,139 @@
+
+<app-sidebar></app-sidebar>
+<form gForm #form="ngForm">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="well center-block">
+        <div class="well-header">
+          <h3 class="text-center "> Change Here! </h3>
+          <hr>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                  </div>
+                  <input type="text" [(ngModel)] = "model.user_id" name="user_id" id="user_id"
+                    placeholder="User Id" class="form-control" value={{user.user_id}} disabled>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)] = "model.first_name" name="first_name" id="first_name"
+                  placeholder="First Name" class="form-control" value={{user.first_name}}>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)] = "model.middle_name" name="middle_name" id="middle_name" placeholder="Middle Name"
+                  class="form-control" value={{user.middle_name}}>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)] = "model.last_name" name="last_name" id="last_name" placeholder="Last Name"
+                  class="form-control" value={{user.last_name}}>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+     
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <input type="text" minlength="10" maxlength="10" placeholder="National_Id" [(ngModel)] ="model.ssn_no"
+                  name="ssn" id="ssn" class="form-control" value={{user.ssn_no}}>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-phone"></i>
+                </div>
+                <input type="tel" minlength="10" maxlength="12" class="form-control" [(ngModel)] ="model.mobile_no" name="phno"
+                  id="phno" placeholder="Mobile No." value={{user.mobile_no}}>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-envelope"></i>
+                </div>
+                <input type="email" class="form-control" [(ngModel)] = "model.email" name="email" id="email"
+                  placeholder="E-Mail" value={{user.email}}>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-list-alt"></i>
+                </div>
+                <textarea class="form-control" [(ngModel)] ="model.address" name="address" id="address"
+                  placeholder="Address" value={{user.address}}></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+ 
+
+        <div class="row widget">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <button (click)="savechanges()" class="btn btn-primary btn-block"> Submit changes </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</form>
+
+

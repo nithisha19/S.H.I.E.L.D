@@ -1,0 +1,75 @@
+<app-sidebar>
+
+</app-sidebar>
+
+
+<body>
+  <div>
+
+
+
+    <div class=" container">
+      <!-- <div class="form-group pull-left" id="toolbar" style="width: 20%">
+        <form [(ngModel)]="selectedItem" #item (change)="onChange(item.value)">
+          <select class="form-control">
+            <option value="success">Success</option>
+            <option value="pending">Pending</option>
+            <option value="Cancelled by Bank.">Failed</option>
+            <option value="" disabled selected hidden>Select your option</option>
+          </select>
+
+        </form>
+      </div> -->
+      <input type="text" class="form-group pull-rigth" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"
+        [showClearButton]="true" (change)="onDateRangeChanged(selected)" placeholder="select for date range"
+        style="align-content:center;margin-left : 35% ;width: 30%; " />
+      <br><br><br>
+
+      <table class="table table-striped " id="myTable">
+        <thead>
+          <tr>
+            <th scope="col">Transaction Id</th>
+
+            <th scope="col">Type</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Time </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of transactions | paginate: { itemsPerPage: 10, currentPage: p }">
+
+
+
+            <th>{{row.transaction_id}}</th>
+            <td *ngIf="row.to_account == accountNumber ">
+              <span class="label label-pill label-success">Credit</span>
+            </td>
+            <td *ngIf="row.to_account != accountNumber ">
+              <span class="label label-pill label-danger">Debit</span>
+            </td>
+
+            <td>{{row.amount}}</td>
+            <td>
+              <span *ngIf="row.status=='success'" class="label label-pill label-primary">{{row.status}}</span>
+              <span *ngIf="row.status=='pending'" class="label label-pill label-warning">{{row.status}}</span>
+              <span *ngIf="row.status=='Cancelled by Bank.'" class="label label-pill label-danger">{{row.status}}</span>
+            </td>
+            <!-- <td>{{row.status}}</td> -->
+
+            <td>{{row.transaction_date | date:'MM/dd/yyyy '}}</td>
+            <td *ngIf="row.to_account == accountNumber ">{{row.to_account_balance}}</td>
+            <td *ngIf="row.to_account != accountNumber ">{{row.from_account_balance}}</td>
+            <td>{{row.transaction_date | date:'hh:mm:ss' : 'IST'}}</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+  </div>
+</body>

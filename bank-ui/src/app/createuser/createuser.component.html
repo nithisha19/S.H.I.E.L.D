@@ -1,0 +1,231 @@
+
+<app-sidebar></app-sidebar>
+
+<form #myForm="ngForm" (ngSubmit)="register(form)" autocomplete="off">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="well center-block">
+        <div class="well-header">
+          <h3 class="text-center "> Create User Here! </h3>
+          <hr>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)]="model.first_name" #first_name="ngModel"
+                name="first_name" id="first_name"
+                  placeholder="First Name"  class="form-control" required>
+                  <div *ngIf="first_name.errors &&(first_name.touched ||first_name.dirty)" 
+                    class="alert alert-danger">
+                      <div [hidden]="!first_name.errors">
+                        <span>Should not be empty</span>
+                      </div>
+                      </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)]="model.middle_name" #middle_name="ngModel" 
+                name="middle_name" id="middle_name" placeholder="Middle Name"
+                  class="form-control" required>
+                  <div *ngIf="middle_name.errors &&(middle_name.touched || middle_name.dirty)" 
+                  class="aler alert-danger">
+                    <div [hidden]="!middle_name.errors">
+                      <span>Should not be empty</span>
+                    </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="text" [(ngModel)]="model.last_name" #last_name="ngModel"
+                 name="last_name" id="last_name" placeholder="Last Name"
+                  class="form-control" required>
+                  <div *ngIf="last_name.errors &&(last_name.touched || last_name.dirty)" 
+                  class="aler alert-danger">
+                    <div [hidden]="!last_name.errors">
+                      <span>Should not be empty</span>
+                    </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <input type="password" [(ngModel)]="model.password" #password ="ngModel"
+                name="password" id="password" placeholder="Password" minlength="8"
+                  class="form-control" required>
+                  <div *ngIf="password.errors &&(password.touched || password.dirty)" 
+                    class="aler alert-danger">
+                      <div [hidden]="!password.errors">
+                        <span>password minimum 8 characters</span>
+                      </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-user"></i>
+                </div>
+                <select type="text" [(ngModel)] ="model.gender" 
+                name="gender" id="gender" placeholder="Gender" 
+                  class="form-control" required>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-lock"></i>
+                </div>
+                <input type="text" minlength="10" maxlength="10"
+                 placeholder="National_Id" [(ngModel)]="model.ssn_no" #ssn_no="ngModel"
+                  name="ssn_no" id="ssn_no" class="form-control" required>
+                  <div *ngIf="ssn_no.errors &&(ssn_no.touched || ssn_no.dirty)" 
+                    class="aler alert-danger">
+                      <div [hidden]="!ssn_no.errors">
+                        <span>please enter 10 digit ssn_no</span>
+                      </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="glyphicon glyphicon-lock"></i>
+                  </div>
+                  <input type="text"
+                  pattern="^[6-9][0-9]{9}$"
+                  minlength="10" maxlength="10"
+                   placeholder="Mobile Number" [(ngModel)]="model.mobile_no" #mobile_no="ngModel"
+                    name="mobile_no" id="mobile_no" class="form-control" required>
+                    <div *ngIf="mobile_no.errors &&(mobile_no.touched || mobile_no.dirty)" 
+                      class="aler alert-danger">
+                        <div [hidden]="!mobile_no.errors?.pattern">
+                          <span>please enter valid mobile number</span>
+                        </div>
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+ 
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+              <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-envelope"></i>
+                </div>                
+                    <input type="text" class="form-control"
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+                           id="email" name="email" [(ngModel)]="model.email" #email="ngModel"
+                            placeholder="Email" required>
+                    <div *ngIf="email.errors &&(email.touched || email.dirty)" 
+                    class="aler alert-danger">
+                      <div [hidden]="!email.errors?.pattern">
+                        <span>Enter in this pattern(xyz@abc.def)</span>
+                      </div>
+                    </div>
+                  </div>
+              
+            </div>
+          </div>
+        </div>
+
+        
+        
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-list-alt"></i>
+                </div>
+                <textarea class="form-control" [(ngModel)]="model.address" #address="ngModel"
+                 name="address" id="address" maxlength="50"
+                  placeholder="Address" required></textarea >
+                  <div *ngIf="address.errors &&(address.touched || address.dirty)" 
+                    class="aler alert-danger">
+                      <div [hidden]="!address.errors">
+                        <span>Not Greater than 50 characters</span>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </div>
+                <input type="date" [(ngModel)]="model.dob" name="dob" id="dob" 
+                placeholder="Date Of Birth"
+                  class="form-control" id="datepicker" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row widget">
+          <div class="col-md-12 col-xs-12 col-sm-12">
+            <button class="btn btn-primary btn-block" type="submit"
+            [disabled]="!myForm.valid"> Submit </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</form>
+
+

@@ -1,0 +1,52 @@
+
+<app-sidebar></app-sidebar>
+<div>
+    <div class="main">
+  
+      <!-- Actual search box -->
+      <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+      </div>
+  
+  
+  
+    </div>
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Transaction Id</th>
+            <th scope="col">From Account</th>
+            <th scope="col">To Account</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="approve">Approve</th>
+            <th scope="disapprove">Disapprove</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of transactions">
+  
+            <th>{{row.transaction_id}}</th>
+            <td>{{row.from_account}}</td>
+            <td>{{row.to_account}}</td>
+            <td>{{row.amount}}</td>
+            <td>{{row.status}}</td>
+            <td>{{row.transaction_date | date:'MM/dd/yyyy'}}</td>
+            <td>{{row.transaction_date | date:'hh:mm:ss' : 'IST'}}</td>
+            <td>
+                <button (click)="approve(row)"  type="button" class="btn btn-primary btn-sm">Approve</button>
+            </td>
+            <td>
+                <button (click)="disapprove(row)"  type="button" class="btn btn-primary btn-sm">Disapprove</button>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
